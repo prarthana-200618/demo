@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+const API = import.meta.env.VITE_API_URL || '/api';
 export type EventType = 'demo_form_submitted' | 'training_reveal_opened' | 'quiz_completed';
 export type DemoLoginPayload = { demo_username: string; password_field_filled: boolean; timestamp: string; session_id: string };
 export async function startSession() { const response = await fetch(`${API}/simulation/start`, { method: 'POST' }); if (!response.ok) throw new Error('Could not start the training session.'); return response.json() as Promise<{ sessionId: string }>; }

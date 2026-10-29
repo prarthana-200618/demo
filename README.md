@@ -33,3 +33,7 @@ Open `http://localhost:5173` for the student simulation and `http://localhost:51
 - `POST /api/admin/reset` clears demo data (requires `x-admin-password`).
 
 Run `npm test` for API security and workflow tests. Submit fictional details at `http://localhost:5173/`, then open `http://localhost:5173/admin`, enter the configured admin password, and refresh the dashboard. No passwords, IP addresses, cookies, browser fingerprints, tokens, or personal identifiers are stored.
+
+## Deploy to Vercel
+
+This repository includes `vercel.json` and an `/api` serverless entry point. Import the GitHub repository into Vercel, keep the project root as the repository root, and add the environment variable `ADMIN_PASSWORD` in the Vercel project settings. The frontend uses the same-origin `/api` path in production. The current event store is in memory, so records are intended for a classroom demo and can disappear when a serverless instance is recycled.

@@ -7,7 +7,7 @@ import { addDemoLogin, addEvent, createSession, EVENT_TYPES, getSummary, hasSess
 
 const app = express();
 const adminPassword = process.env.ADMIN_PASSWORD || 'change-this-local-password';
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173' }));
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || true }));
 app.use(express.json({ limit: '8kb' }));
 app.use(rateLimit({ windowMs: 60_000, limit: Number(process.env.RATE_LIMIT_MAX || 120), standardHeaders: true, legacyHeaders: false }));
 
